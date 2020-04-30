@@ -12,5 +12,16 @@ services:
     expose: 
       - 8000
     volumes: 
-      - ./server:/usr/src/app/server
-    command: yarn run server
+      - ./server:/app/server
+  client:
+    container_name: client
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    image: fullstack-docker/client
+    ports: 
+      - '3000:3000'
+    expose: 
+      - 3000
+    volumes: 
+      - ./server:/app/client

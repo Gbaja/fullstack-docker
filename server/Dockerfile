@@ -1,15 +1,8 @@
-FROM node:10-slim
-
-WORKDIR /app
-
-COPY package.json .
-COPY yarn.lock .
-COPY node_modules .
-
-RUN yarn install 
-
-COPY index.js .
-
+FROM node:7
+WORKDIR /app/server
+COPY package.json /app/server
+COPY yarn.lock /app/server
+RUN yarn install
+COPY . /app/server
 EXPOSE 8000
-
 CMD ["yarn", "run", "server"]

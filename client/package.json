@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:client": "webpack-dev-server --config webpack.dev.js --open",
+    "client": "node_modules/.bin/webpack-dev-server --host 0.0.0.0 --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js"
   },
-  "proxy": "http://localhost:8000",
   "keywords": [],
   "author": "",
   "license": "ISC",
