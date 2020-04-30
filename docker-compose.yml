@@ -8,16 +8,9 @@ services:
       dockerfile: Dockerfile
     image: fullstack-docker/server
     ports: 
-      - 3000:3000
+      - '8000:8000'
+    expose: 
+      - 8000
     volumes: 
       - ./server:/usr/src/app/server
-  client:
-    container_name: client
-    build: 
-      context: ./client
-      dockerfile: Dockerfile
-    image: fullstack-docker/client
-    ports: 
-      - 8000:8000
-    volumes: 
-      - ./client:/usr/src/app/client
+    command: yarn run server
