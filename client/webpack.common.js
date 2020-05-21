@@ -4,6 +4,10 @@ module.exports = {
   entry: {
    main: "./src/index.js",
   },
+  devServer: {
+    inline:true,
+    port: 8001
+  },
   module: {
     rules: [
       {

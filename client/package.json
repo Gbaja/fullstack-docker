@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "node_modules/.bin/webpack-dev-server --host 0.0.0.0 --config webpack.dev.js --open",
+    "client": "node_modules/.bin/webpack-dev-server --host 0.0.0.0 --port 8001 --config webpack.dev.js --open",
     "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],

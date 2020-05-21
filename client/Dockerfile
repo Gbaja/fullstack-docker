@@ -17,6 +17,6 @@ RUN yarn install --ignore-engines
 # Copy the local code into the container folder
 COPY . /app/client
 
-EXPOSE 8080
+EXPOSE 8001
 
 CMD ["yarn", "run", "client"]
