@@ -1,5 +1,7 @@
 version: '3'
-
+networks:
+  myapp:
+    external: true
 services: 
   server:
     container_name: server
@@ -13,6 +15,8 @@ services:
       - 8000
     volumes: 
       - ./server:/app/server
+    networks: 
+      - myapp
   client:
     container_name: client
     build: 
@@ -20,8 +24,8 @@ services:
       dockerfile: Dockerfile
     image: fullstack-docker/client
     ports: 
-      - '3000:3000'
-    expose: 
-      - 3000
+      - '8080:8080'
     volumes: 
       - ./server:/app/client
+    networks: 
+      - myapp
