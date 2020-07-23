@@ -10,6 +10,18 @@ module.exports = merge(common, {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist")
   },
+  devServer: {
+    inline:true,
+    port: 8001,
+    proxy: {
+      '/api': {
+        target: 'http://server:8000',
+        pathRewrite: { '^/api': '' },
+        secure: false,
+        changeOrigin: true,
+      },
+    }
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html"

@@ -7,10 +7,14 @@ services:
       context: ./server
       dockerfile: Dockerfile
     image: fullstack-docker/server
+    command: ["yarn", "run", "server"]
     ports:
       - '8000:8000'
     expose:
       - 8000
+    volumes: 
+      - ./server:/app/server
+      - server_node_modules:/app/server/node_modules
 
   client:
     container_name: client
@@ -18,7 +22,15 @@ services:
       context: ./client
       dockerfile: Dockerfile
     image: fullstack-docker/client
+    command: ["yarn", "run", "client"]
     ports:
       - '8001:8001'
     expose:
       - 8001
+    volumes: 
+      - ./client:/app/client
+    links:
+     - server
+
+volumes: 
+  server_node_modules:
