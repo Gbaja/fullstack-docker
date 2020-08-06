@@ -10,12 +10,21 @@ The api runs on http://localhost:8000/
 
 ## How to run locally
 
-Must have the following on your machine:
+* Must have the following on your machine:
+    * Docker
+    * Node
+    * Docker-compose
+    * Yarn
 
-- Docker
-- Node
-- Docker-compose
-- Yarn
+* Paste the following in a database.env file within the database folder. You can change the values to be whatever you want.
 
-Run `docker-compose up` in terminal 
+    ```
+    POSTGRES_USER=fatimat
+    POSTGRES_PASSWORD=password
+    POSTGRES_DB=fullstack_database
+    ```
+
+Run `docker-compose up` in terminal to get services running
+
+To connect to the database run `docker-compose run database bash` this will take you into the databse container shell. You can then use `psql --host=database --username=<<POSTGRESS_USER>> --dbname=<<POSTGRESS_DB>>`
 

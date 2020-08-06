@@ -1,6 +1,16 @@
 version: '3'
 
 services:
+  database:
+    image: postgres:latest
+    env_file:
+      - ./database/database.env
+    volumes:
+      - database_data:/app/init.sql
+    container_name: fullstackdocker-db
+    ports:
+      - 5432:5432
+
   server:
     container_name: server
     build:
@@ -34,3 +44,4 @@ services:
 
 volumes: 
   server_node_modules:
+  database_data:
