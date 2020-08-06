@@ -4,7 +4,7 @@ services:
   database:
     image: postgres:latest
     env_file:
-      - ./database/database.env
+      - ./server/database/database.env
     volumes:
       - database_data:/app/init.sql
     container_name: fullstackdocker-db

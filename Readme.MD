@@ -26,5 +26,8 @@ The api runs on http://localhost:8000/
 
 Run `docker-compose up` in terminal to get services running
 
-To connect to the database run `docker-compose run database bash` this will take you into the databse container shell. You can then use `psql --host=database --username=<<POSTGRESS_USER>> --dbname=<<POSTGRESS_DB>>`
+## Useful tips
 
+- To connect to the database run `docker-compose run database bash` this will take you into the databse container shell. You can then use `psql --host=database --username=<<POSTGRESS_USER>> --dbname=<<POSTGRESS_DB>>`
+
+- Remove all volumes `docker-compose down -v` useful thing to do for when you install a new package, though this deletes databse data too.
